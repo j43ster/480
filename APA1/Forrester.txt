@@ -1,0 +1,4 @@
+Forrester (hist=[], score=[], query = False):
+        if query:
+                return ["J","Almost done"]
+        return 'D'
