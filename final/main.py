@@ -35,24 +35,26 @@ while(True):
    #print kb.query(sentence) 
      
    # send FOL through rules moduqe 
-   if (sentence.startswith("try: ")):
-      print "going to try to understand an english sentence"
-      sentence = sentence.partition("try: ")[2]
+   if (sentence.startswith("try: ") or sentence.find("(") == -1):
+      if sentence.startswith("try: "):
+         sentence = sentence.partition("try: ")[2]
       processed = parser.ie_preprocess(sentence)
-      print processed
+      #print processed
       if (sentence.lower().find("i ") != -1): 
          nouns = [i for (i, j) in processed[0] if j == "NN"]
-         print str(nouns)
+         #print str(nouns)
          for noun in nouns:
             action = "%s(%s)" % (noun, kb_name)
             print action
             kb.tell(action)
+      else:
+         print "robot: I could not make sense of your sentence :("
    elif (sentence[-1] == "?"):
       result = kb.ask(sentence[:-1])
 
       if (result == []):
          print "robot: False"
-      elif (len(result) == 1 and result[0] == '[]'):
+      elif (len(result) >= 1 and isinstance(result[0], str) and len(set(result)) == 1):
          print "robot: True"
       else:
          print "robot: %s" % str(result)
