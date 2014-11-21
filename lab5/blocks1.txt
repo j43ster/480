@@ -1,0 +1,17 @@
+INIT
+#     |C|
+# |B| |A|
+ON B Table
+CLEAR B
+ON A TABLE
+ON C A
+CLEAR C
+
+GOAL
+# |A|
+# |B|
+# |C|
+ON C Table
+ON B C
+ON A B
+CLEAR A 

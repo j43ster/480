@@ -1,0 +1,19 @@
+chat bot talking about weightlifting
+
+for implications, template the input. i.e.
+   if == A person is a lifter if the are a powerlifter
+   translates to -> lifter(Person) :- powerlifter(Person)
+
+look into stemming to make predicates more consistent
+
+keywords to trigger certain stuff:
+   quit - exit the program
+   exit - exit the program
+   help - print out this list # not implemented yet 
+
+
+as of dev checkpoint #2 fooad said
+use templates for all input
+add as many as you can 
+some for rules, some for facts
+that is good enough
