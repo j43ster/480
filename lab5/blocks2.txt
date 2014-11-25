@@ -1,8 +1,9 @@
 INIT
-#     |C|
+# |D| |C|
 # |B| |A|
 ON B Table
-CLEAR B
+ON D B
+CLEAR D
 ON A Table
 ON C A
 CLEAR C
@@ -11,7 +12,9 @@ GOAL
 # |A|
 # |B|
 # |C|
-ON C Table
+# |D|
+ON D Table
+ON C D
 ON B C
 ON A B
 CLEAR A 
