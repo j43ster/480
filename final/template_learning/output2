@@ -1,0 +1,6 @@
+:sentence_chunk: [[('I', 'PRP'), ('drink', 'VBP'), ('lattes', 'NNS'), ('in', 'IN'), ('the', 'DT'), ('morning', 'NN'), ('.', '.')]]
+:sentence_chunk: [[('Meditation', 'NN'), ('awakens', 'NNS'), ('my', 'PRP$'), ('hidden', 'NN'), ('brilliance', 'NN'), ('.', '.')]]
+:sentence_chunk: [[('We', 'PRP'), ('are', 'VBP'), ('all', 'RB'), ('connected', 'VBN'), ('.', '.')]]
+:sentence_chunk: [[('I', 'PRP'), ('like', 'VBP'), ('to', 'TO'), ('climb', 'VB'), ('rocks', 'NNS'), ('and', 'CC'), ('listen', 'RB'), ('to', 'TO'), ('the', 'DT'), ('blues', 'NNS'), ('.', '.')]]
+:sentence_chunk: [[('I', 'PRP'), ('like', 'VBP'), ('sweet', 'JJ'), ('potaotes', 'NNS'), ('because', 'IN'), ('they', 'PRP'), ('are', 'VBP'), ('orange', 'JJ'), ('.', '.')]]
+:

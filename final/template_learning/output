@@ -1,0 +1,9 @@
+:sentence_chunk: [[('my', 'PRP$'), ('name', 'NN'), ('is', 'VBZ'), ('jeff', 'NN')]]
+:sentence_chunk: [[('I', 'PRP'), ('am', 'VBP'), ('a', 'DT'), ('powerlifter', 'NN')]]
+:sentence_chunk: [[('Jeff', 'NNP'), ('is', 'VBZ'), ('stronger', 'JJR'), ('than', 'IN'), ('James', 'NNP')]]
+:sentence_chunk: [[('My', 'PRP$'), ('benchpress', 'NN'), ('max', 'NN'), ('is', 'VBZ'), ('100', 'CD')]]
+:sentence_chunk: [[('MY', 'PRP$'), ('benchpress', 'NN'), ('maximum', 'NN'), ('is', 'VBZ'), ('100', 'CD'), ('pounds', 'NNS')]]
+:sentence_chunk: [[('I', 'PRP'), ('can', 'MD'), ('bench', 'VB'), ('100', 'CD'), ('pounds', 'NNS')]]
+:sentence_chunk: [[('I', 'PRP'), ('lift', 'VBP'), ('3', 'CD'), ('days', 'NNS'), ('a', 'DT'), ('week', 'NN')]]
+:sentence_chunk: [[('I', 'PRP'), ('lift', 'VBP'), ('3', 'CD'), ('days', 'NNS'), ('per', 'IN'), ('week', 'NN')]]
+:

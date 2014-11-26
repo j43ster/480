@@ -1,0 +1,168 @@
+('I', 'am', 'a', 'powerlifter')
+('PRP', 'VBP', 'DT', 'NN')
+
+Powerlifter(I)
+
+('Jeff', 'is', 'stronger', 'than', 'James')
+('NNP', 'VBZ', 'JJR', 'IN', 'NNP')
+
+Stronger(Jeff, James)
+
+('My', 'benchpress', 'max', 'is', '100')
+('PRP$', 'NN', 'NN', 'VBZ', 'CD')
+
+benchpressmax(I, 100)
+
+('MY', 'benchpress', 'maximum', 'is', '100', 'pounds')
+('PRP$', 'NN', 'NN', 'VBZ', 'CD', 'NNS')
+
+benchpressmac(I, 100)
+
+('I', 'can', 'bench', '100', 'pounds')
+('PRP', 'MD', 'VB', 'CD', 'NNS')
+
+bench(I, 100)
+
+('I', 'lift', '3', 'days', 'a', 'week')
+('PRP', 'VBP', 'CD', 'NNS', 'DT', 'NN')
+
+
+
+('I', 'lift', '3', 'days', 'per', 'week')
+('PRP', 'VBP', 'CD', 'NNS', 'IN', 'NN')
+
+
+
+('I', 'drink', 'lattes', 'in', 'the', 'morning', '.')
+('PRP', 'VBP', 'NNS', 'IN', 'DT', 'NN', '.')
+
+Drink(I, lattes)
+should be more than this...
+
+('Meditation', 'awakens', 'my', 'hidden', 'brilliance', '.')
+('NN', 'NNS', 'PRP$', 'NN', 'NN', '.')
+
+awakens(meditation, my, hidden brillance)
+
+('We', 'are', 'all', 'connected', '.')
+('PRP', 'VBP', 'RB', 'VBN', '.')
+
+Connected(X, Y)
+
+('I', 'like', 'to', 'climb', 'rocks', 'and', 'listen', 'to', 'the', 'blues', '.')
+('PRP', 'VBP', 'TO', 'VB', 'NNS', 'CC', 'RB', 'TO', 'DT', 'NNS', '.')
+
+like(I, 'climb rocks')
+listen(I, blues)
+
+('I', 'like', 'sweet', 'potaotes', 'because', 'they', 'are', 'orange', '.')
+('PRP', 'VBP', 'JJ', 'NNS', 'IN', 'PRP', 'VBP', 'JJ', '.')
+
+orange(X) implies like(I, X)
+orange('sweet potatoes')
+
+('This', 'computer', 'is', 'smart')
+('DT', 'NN', 'VBZ', 'NN')
+
+smart(computer)
+
+('Conversation', 'with', 'strangers', 'is', 'my', 'favorite')
+('NN', 'IN', 'NNS', 'VBZ', 'PRP$', 'JJ')
+
+???
+
+('Traveling', 'keeps', 'me', 'young')
+('VBG', 'NNS', 'PRP', 'JJ')
+
+?
+
+('I', 'love', 'the', 'cold', 'side', 'of', 'the', 'pillow')
+('PRP', 'VBP', 'DT', 'NN', 'NN', 'IN', 'DT', 'NN')
+
+?
+
+('A', 'smile', 'means', 'the', 'same', 'in', 'every', 'language')
+('DT', 'NN', 'VBZ', 'DT', 'JJ', 'IN', 'DT', 'NN')
+
+?
+
+('Bees', 'are', 'loud')
+('NNS', 'VBP', 'VBN')
+
+loud(bees)
+
+('I', 'am', 'so', 'random')
+('PRP', 'VBP', 'RB', 'IN')
+
+random(I)
+
+('Warm', 'scarves', 'make', 'me', 'happy')
+('NN', 'NNS', 'VBP', 'PRP', 'JJ')
+
+Warm(X) and Scarves(X) implies Happy(I)
+
+('Green', 'eyes', 'are', 'pretty')
+('NNP', 'VBZ', 'VBP', 'RB')
+
+Pretty(X) :- Eyes(X), Green(X)
+
+('Fruit', 'is', 'yummy')
+('NN', 'VBZ', 'JJ')
+
+Yummy(Fruit)
+
+('Warm', 'coffee', 'is', 'better', 'than', 'cold')
+('NN', 'NN', 'VBZ', 'RBR', 'IN', 'JJ')
+
+Better(X, Y) :- Coffee(X), Coffee(Y), Cold(Y), Warm(X)
+
+('I', 'want', 'to', 'learn', 'Acro', 'Yoga')
+('PRP', 'VBP', 'TO', 'VB', 'NNP', 'NNP')
+
+?
+
+('Backpacking', 'is', 'my', 'favorite', 'therapy')
+('VBG', 'VBZ', 'PRP$', 'JJ', 'NN')
+
+?
+
+('Tables', 'are', 'made', 'out', 'of', 'trees')
+('NNS', 'VBP', 'VBN', 'RP', 'IN', 'NNS')
+
+Make(trees, tables)
+
+('I', 'have', 'a', 'similar', 'computer')
+('PRP', 'VBP', 'DT', 'JJ', 'NN')
+
+?
+
+('Hummingbirds', 'in', 'Peru', 'are', 'much', 'bigger', 'than', 'here')
+('NNS', 'IN', 'NNP', 'VBP', 'RB', 'JJR', 'IN', 'RB')
+
+this one is long
+
+('I', 'rock', 'climb', 'everyday')
+('PRP', 'VBP', 'NN', 'NN')
+
+rockclimb(I, everyday)
+
+('I', 'eat', 'fruit', 'all', 'day', 'long')
+('PRP', 'VBP', 'NN', 'DT', 'NN', 'RB')
+
+Eat(I, Fruit)
+
+('Fruit', 'is', 'like', 'candy', ',', 'but', 'better')
+('NN', 'VBZ', 'IN', 'NN', ',', 'CC', 'JJR')
+
+Like(Fruit, Candy), Better(Fruit, Candy)
+
+('Tea', 'is', 'better', 'than', 'coffee')
+('NNP', 'VBZ', 'JJR', 'IN', 'NN')
+
+Better(tea, coffee)
+
+('I', 'drink', 'a', 'lot', 'of', 'coffee')
+('PRP', 'VBP', 'DT', 'NN', 'IN', 'NN')
+
+Drink(I, Coffee)
+

@@ -3,8 +3,10 @@
 import parser as p
 import nltk, re
 
+keywords = ["name", "max", "maximum", "bench", "press"]
+
 while(True):
-   raw_sentence = raw_input('Do you have anything else to say? ')
+   raw_sentence = raw_input(':')
 
    if (raw_sentence == "no"):
       break
@@ -12,10 +14,8 @@ while(True):
    # pull out NN here and see if any are in keywords
    # if they are, try to get info from the sentence
 
-   sentence_chunk = p.np_chunk(raw_sentence)
+   sentence_chunk = p.ie_preprocess(raw_sentence)
    print("sentence_chunk: " + str(sentence_chunk))
-   #p.extract_relations([sentence_chunk])
-   sentence_chunk.draw()
 
 #IN = re.compile(r'.*\bin\b(?!\b.+ing)')
 #for doc in nltk.corpus.ieer.parsed_docs('NYT_19980315'):

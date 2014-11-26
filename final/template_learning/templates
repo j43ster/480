@@ -1,0 +1,94 @@
+('I', 'am', 'a', 'powerlifter')
+('PRP', 'VBP', 'DT', 'NN')
+
+poerlifter(I)
+
+('Jeff', 'is', 'stronger', 'than', 'James')
+('NNP', 'VBZ', 'JJR', 'IN', 'NNP')
+
+Stronger(Jeff, James)
+
+('I', 'am', 'stronger', 'than', 'James')
+('PRP', 'VBP', 'JJR', 'IN', 'NNP')
+
+Stronger(I, James)
+
+('My', 'benchpress', 'max', 'is', '100')
+('PRP$', 'NN', 'NN', 'VBZ', 'CD')
+
+benchpress_max(I, 100)
+
+('My', 'benchpress', 'max', 'is', '100', 'pounds')
+('PRP$', 'NN', 'NN', 'VBZ', 'CD', 'NNS')
+
+benchpress_max(I, 100)
+
+('I', 'can', 'benchpress', '100', 'pounds')
+('PRP', 'MD', 'VB', 'CD', 'NNS')
+
+benchpress(I, 100)
+
+('I', 'can', 'benchpress', '100')
+('PRP', 'MD', 'VB', 'CD')
+
+benchpress(I, 100)
+
+('I', 'lift', 'in', 'the', 'morning')
+('PRP', 'VBP', 'IN', 'DT', 'NN')
+
+Lift(I, morning)
+
+('I', 'lift', '3', 'days', 'per', 'week')
+('PRP', 'VBP', 'CD', 'NNS', 'IN', 'NN')
+
+
+
+('I', 'lift', '3', 'days', 'a', 'week')
+('PRP', 'VBP', 'CD', 'NNS', 'DT', 'NN')
+
+
+
+('I', 'lift', 'to', 'get', 'stronger')
+('PRP', 'VBP', 'TO', 'VB', 'JJR')
+
+
+
+('I', 'lift', 'to', 'become', 'stronger')
+('PRP', 'VBP', 'TO', 'VB', 'JJR')
+
+
+
+('I', 'lift', 'for', 'strength')
+('PRP', 'VBP', 'IN', 'NN')
+
+
+
+('James', 'is', 'strong')
+('NNP', 'VBZ', 'JJ')
+
+Strong(James)
+
+('My', 'favorite', 'lift', 'is', 'the', 'benchpress')
+('PRP$', 'JJ', 'NN', 'VBZ', 'DT', 'NN')
+
+favorite_lift(I, benchpress)
+
+('Lifting', 'keeps', 'me', 'strong')
+('VBG', 'NNS', 'PRP', 'JJ')
+
+
+
+('Lifting', 'is', 'hard')
+('VBG', 'VBZ', 'JJ')
+
+Hard(lifting)
+
+('Lifting', 'is', 'difficult')
+('VBG', 'VBZ', 'JJ')
+
+difficult(lifting)
+
+('I', 'lift', 'everyday')
+('PRP', 'VBP', 'NN')
+
+lift(I, everyday)
