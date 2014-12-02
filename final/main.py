@@ -2,6 +2,13 @@
 import lifting_rules
 import parser
 
+def handle_ask_result(result):
+   if (result == []):
+      print "robot: False"
+   elif (len(result) >= 1 and isinstance(result[0], str) and len(set(result)) == 1):
+      print "robot: True"
+   else:
+      print "robot: %s" % str(result)
 
 # initialize rules and facts
 kb = lifting_rules.LiftingRules()
@@ -43,34 +50,25 @@ while(True):
    #print kb.query(sentence) 
      
    # send FOL through rules moduqe 
-   if (sentence.startswith("try: ") or sentence.find("(") == -1):
-      if sentence.startswith("try: "):
-         sentence = sentence.partition("try: ")[2]
-      #processed = parser.ie_preprocess(sentence)
-      #print processed
-      #if (sentence.lower().find("i ") != -1): 
-      #   nouns = [i for (i, j) in processed[0] if j == "NN"]
-      #   #print str(nouns)
-      #   for noun in nouns:
-      #      action = "%s(%s)" % (noun, kb_name)
-      #      print action
-      #      kb.tell(action)
-      #
-      #else:
-      #   print "robot: I could not make sense of your sentence :("
-      meaning = parser.extract_meaning(sentence, kb_name) 
+   if (sentence.find("(") == -1):
+      (action, meaning) = parser.extract_meaning(sentence, kb_name) 
+
+      if (not(meaning)):
+         print("robot: I could not find meaning in your sentence: '%s'" % sentence)
+         continue
       print(str(meaning))
-      kb.tell(meaning)
-      dynamicfacts.write(meaning)
+
+      if (action == "tell"):
+         kb.tell(meaning)
+         dynamicfacts.write(meaning)
+         dynamicfacts.write("\n")
+      elif (action == "ask"):
+         result = kb.ask(meaning)
+         handle_ask_result(result)
+         
    elif (sentence[-1] == "?"):
       result = kb.ask(sentence[:-1])
-
-      if (result == []):
-         print "robot: False"
-      elif (len(result) >= 1 and isinstance(result[0], str) and len(set(result)) == 1):
-         print "robot: True"
-      else:
-         print "robot: %s" % str(result)
+      handle_ask_result(result)
 
    else:
       if (sentence[-1] == "."):
@@ -78,7 +76,7 @@ while(True):
 
       kb.tell(sentence)
       dynamicfacts.write(sentence)
-      dynamicfacts.write("\n")
+      dynamicfacts.write('\n')
       
 # any responses to the client       
 print("Goodbye, " + str(client_name))
