@@ -50,6 +50,18 @@ class State():
    def __eq__(self, other):
       return self.blocks == other.blocks
 
+   def has_subset(self, subset):
+      for key in subset.blocks.keys():
+         sub_block = subset.blocks[key] 
+         super_block = self.blocks[key]
+         if (not(sub_block.clear == '?')):
+            if (not(sub_block.clear == super_block.clear)):
+               return False
+         if (not(sub_block.on == '?')):
+            if (not(sub_block.on == super_block.on)):
+               return False
+      return True
+
    def clear(self, b, value):
       if (b == TABLE):
          return
@@ -187,7 +199,7 @@ def FindSolution(initial, goal, reverse):
             result = state.moveToTable(parts[1], parts[2])
 
          paths.append((depth+1, result, path + [action]))
-         if (result == finish):
+         if (result.has_subset(finish)):
             return paths[-1]
 
 def reverse_path(path):
@@ -244,7 +256,7 @@ else:
 # and arriving at the best solution when a backtracked
 # state is equivalent to the start state
 
-reverse = True
+reverse = False
 (moves, state, path) = FindSolution(Init, Goal, reverse)
 
 if reverse:
