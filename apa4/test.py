@@ -1,25 +1,30 @@
 #!/usr/bin/python3
 
-import Forrester
+from Forrester import *
 import SimplePlayers
 import roundRobin
 import tournament
 
 players = [
-           Forrester.Forrester4,
+#           Forrester4,
+#           Forrester4,
+#           Forrester4,
+           Forrester4,
+           Forrester4,
+           SimplePlayers.TitForTat,
+           SimplePlayers.TitForTat,
+           SimplePlayers.TitForTat,
+           SimplePlayers.TitForTat,
+           SimplePlayers.TitForTat,
+           SimplePlayers.TitForTat,
            SimplePlayers.Defect,
-           SimplePlayers.Cooperate,
-           SimplePlayers.Ten,
-           SimplePlayers.Twenty,
-           SimplePlayers.Thirty,
-           SimplePlayers.Forty,
+           SimplePlayers.Defect,
+#           SimplePlayers.Defect,
+#           SimplePlayers.Defect,
            SimplePlayers.Fifty,
-           SimplePlayers.Sixty,
-           SimplePlayers.Seventy,
-           SimplePlayers.Eighty,
-           SimplePlayers.Ninety,
-           SimplePlayers.Bad,
+           SimplePlayers.Fifty,
+           SimplePlayers.Cooperate,
           ]
 
-#roundRobin.roundRobin(players, 1000, 0.2, 0.001)
-roundRobin.tournament(players, 1000, 0.0, 0.001)
+roundRobin.tournament(players, 500, 0.38, 0.003)
+#roundRobin.tournament(players, 1000, 0.0, 0.001)

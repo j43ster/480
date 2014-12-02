@@ -9,6 +9,15 @@ def RandomChoice(percentage):
    else:
       return 'C'
 
+def TitForTat (hist=[], score=[], query = False):
+   if query:
+      return ["T4T","Tit For Tat"]
+   else:
+      if (len(hist) == 0):
+         return 'C'
+      else:
+         return hist[-1][-1]
+
 def Defect (hist=[], score=[], query = False):
    if query:
       return ["D","I always Defect"]

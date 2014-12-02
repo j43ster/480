@@ -85,9 +85,9 @@ def roundRobin(agentDB, matchTurns=1000, F=0.5, I=0.001, verbose=0):
 
    sortedScores = sorted(zip(agentDB, scores),key=lambda x: x[1], reverse=True)
 
-#   print("Final Scores: ")
-#   for player in sortedScores:
-#      print(str(player[0](0, 0, True)) + ": " + str(player[1]))
+   print("Round Scores: ")
+   for player in sortedScores:
+      print(str(player[0](0, 0, True)) + ": " + str(player[1]))
 
    return sortedScores
 
