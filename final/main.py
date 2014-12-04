@@ -4,11 +4,11 @@ import parser
 
 def handle_ask_result(result):
    if (result == []):
-      print "robot: False"
+      print "agent: No."
    elif (len(result) >= 1 and isinstance(result[0], str) and len(set(result)) == 1):
-      print "robot: True"
+      print "agent: Yes."
    else:
-      print "robot: %s" % str(result)
+      print "agent: %s" % str(result)
 
 # initialize rules and facts
 kb = lifting_rules.LiftingRules()
@@ -33,7 +33,7 @@ if (len(returning)):
    print "Welcome Back, %s" % client_name
 else:
    kb.tell("lifter(%s)" % kb_name)
-   print "robot: I'm glad you've decided to talk to me!"
+   print "agent: I'm glad you've decided to talk to me!"
 
 # in either case, tell them how you work. i.e. ? to ask a question, period to tell me something
 # maybe provide a list of common keywords to talk about that are included in the ontology 
@@ -54,9 +54,9 @@ while(True):
       (action, meaning) = parser.extract_meaning(sentence, kb_name) 
 
       if (not(meaning)):
-         print("robot: I could not find meaning in your sentence: '%s'" % sentence)
+         print("agent: I could not find meaning in your sentence: '%s'" % sentence)
          continue
-      print(str(meaning))
+      #print(str(meaning))
 
       if (action == "tell"):
          kb.tell(meaning)

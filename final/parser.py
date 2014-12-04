@@ -7,6 +7,8 @@ import nltk.tag, nltk.data
 TELL = "tell"
 ASK = "ask"
 
+Arity = {}
+
 default_tagger = nltk.data.load(nltk.tag._POS_TAGGER)
 model = {
    'stronger': 'JJR',
@@ -33,7 +35,9 @@ def np_chunk(sentence):
    processed_sentence = ie_preprocess(sentence)[0]
    grammar = r"""
   Ignored:
-     {<WP>|<MD>|<TO>|<RB|RB.>|<WRB>}
+     {<WP>|<MD>|<TO>|<RB|RB.>}
+  WRB:
+     {<WRB>}
   IN:
      {<IN>}
   NP: 
@@ -83,7 +87,8 @@ def convert_subject(phrase, client_name):
       return client_name
    else:
       for leaf in subtree:
-         noun = noun + " " + leaf[0]
+         if not(leaf[1] == 'POS'):
+            noun = noun + " " + leaf[0]
 
       return "'%s'" % noun.lower().strip()
 
@@ -104,6 +109,12 @@ def handle_rule1(tree, client_name):
    subject = convert_subject(tree[0], client_name)
    noun = convert_np(tree[2])
    solution = "%s(%s)" % (noun, subject)
+   
+   if not(noun in Arity):
+      Arity[noun] = []
+
+   Arity[noun].append(1)
+
    return (TELL, solution)
 
 def handle_rule2(tree, client_name):
@@ -111,6 +122,12 @@ def handle_rule2(tree, client_name):
    s2 = convert_subject(tree[-1], client_name)
    comparison = [x[0] for x in tree if len(x) > 1 and x[1] == "JJR"]
    comparison = comparison[0]
+
+   if not(comparison in Arity):
+      Arity[comparison] = []
+
+   Arity[comparison].append(2)
+
    return (TELL, "%s(%s, %s)" % (comparison, s1, s2))
 
 def handle_rule3(tree, client_name):
@@ -135,7 +152,12 @@ def handle_rule3(tree, client_name):
    if nounPhrase:
       predicate = nounPhrase
 
-   return (TELL, "%s(%s, %s)" % (predicate, subject, amount))  
+   if not(predicate in Arity):
+      Arity[predicate] = []
+
+   Arity[predicate].append(2)
+
+   return (TELL, "%s(%s, '%s')" % (predicate, subject, amount))  
 
 def handle_rule4(tree, client_name):
    subject = convert_subject(tree[0], client_name)
@@ -154,13 +176,31 @@ def handle_rule4(tree, client_name):
    else:
       verbPhrase = None
 
+   if not(verbPhrase in Arity):
+      Arity[verbPhrase] = []
+
+   Arity[verbPhrase].append(2)
+
    return (TELL, "%s(%s, %s)" % (verbPhrase, subject, nounPhrase))
 
 def handle_rule1q(tree, client_name):
    subject = convert_subject(tree[1], client_name)
    noun = convert_np(tree[2])
-   solution = "%s(%s)" % (noun, subject)
-   return (ASK, solution)
+
+   params = None
+   if noun in Arity:
+      params = Arity[noun][-1]      
+
+   if params: 
+      solution = "%s(%s" % (noun, subject)
+
+      variables = ['_', 'X', 'Y', 'Z', 'A']
+      for i in range(1, params):
+         solution = solution + ", %s" % variables[i]
+      solution = solution + ")"
+      return (ASK, solution)
+   else:
+      return (None, None)
 
 # {<rule2><Question>} # Am I stronger than James, Is Jeff stronger than James
 def handle_rule2q(tree, client_name):

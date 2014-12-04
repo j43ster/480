@@ -1,7 +1,5 @@
 #!/usr/bin/python3
 
-ForresterStore = {}
-
 def Forrester4 (hist=[], score=[], query = False):
 
    period_1 = 60

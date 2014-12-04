@@ -4,6 +4,7 @@
 :- dynamic(bodybuilder/1).
 :- dynamic(purpose/2).
 :- dynamic(similar/2).
+:- dynamic(benchpress_max/2).
 
 %! Rules
 lifter(X) :- powerlifter(X) ; bodybuilder(X).

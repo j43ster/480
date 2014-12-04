@@ -15,6 +15,8 @@ class LiftingRules:
       self.p.consult("rules.pl")
 
    def ask(self, question):
+      if not(question[-1] == '.'):
+         question = question + "."
       return list(self.p.query(question))
 
    def tell(self, fact):
@@ -30,6 +32,9 @@ def test():
             ("father(michael,olivia).","Is Michael father of Olivia?"),
             ("father(michael,X).","Michael is the father of whom?"),
             ("father(X,Y).","Who is the father of whom?")]
+
+    lines = [("assertz(benchpress_max(jeff, hundred)).", ""),
+             ("benchpress_max(jeff, X).", "")]
 
     prolog = pyswip.Prolog()
 
